@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db.models import *
 
 
@@ -11,6 +13,7 @@ class Post(Model):
 class Comment(Model):
     author = CharField(max_length=100)
     comment_body = CharField(max_length=500)
+    post = ForeignKey(Post, on_delete=CASCADE)
     create_data = DateTimeField(auto_now_add=True)
 
 
