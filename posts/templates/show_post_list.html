@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Главная страница</title>
 </head>
 <body>
-<h3 align="center"> Список постов </h3>
+<form action="{% url 'create_post' %}">
+    <button type="submit" value="">Создать пост</button>
+</form>
 {% for post in posts %}
    <div>
-       <p align="center">
-           <b>
+           <h2 align="center">
                <a href="{% url 'show_post_list'%}{{post.id}}">{{post.title}}</a>
-           </b>
-       </p>
-        <p>{{post.author}}</p>
-        <p>{{post.post_body}}</p>
-       <p><em>{{post.published_date}}</em></p>
+           </h2>
+           <p align="center">Автор: {{post.author}}</p>
    </div>
-<hr>
+<hr align="center" width="75%">
 {% endfor %}
 </body>
 </html>
