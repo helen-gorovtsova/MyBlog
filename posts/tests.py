@@ -13,7 +13,7 @@ class PostTest(TestCase):  # тест для главной страницы
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Django')
 
-    def test_detail_post(self):
+    def test_detail_post(self):  # тест перехода на страницу выбранного поста
         request = HttpRequest()
         post = Post(title='Save the World!')
         post.save()

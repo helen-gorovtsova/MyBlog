@@ -6,12 +6,12 @@ from .models import Post
 
 def show_post_list(request):
     posts = Post.objects.all().order_by('-published_date')
-    return render(request, 'show_post_list.html', context={'posts': posts})
+    return render(request, 'posts/show_post_list.html', context={'posts': posts})
 
 
 def detail_post(request, post_id):
     post = Post.objects.get(id=post_id)
-    return render(request, 'detail_post.html', context={'post': post})
+    return render(request, 'posts/detail_post.html', context={'post': post})
 
 
 def create_post(request):
@@ -23,4 +23,4 @@ def create_post(request):
         print(form.errors)
     else:
         form = PostForm()
-    return render(request, 'create_post.html', context={'form': form})
+    return render(request, 'posts/create_post.html', context={'form': form})

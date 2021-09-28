@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать задачу</title>
+</head>
+<body>
+    <form action="{% url 'create_todo' %}" method="post">
+        {% csrf_token %}
+        <div>{{form.non_field_error}}</div>
+        {% for field in form %}
+        <div>
+            {{field.label}}
+            {{field}}
+            <div>{{ field.error }}</div>
+        </div>
+        {% endfor %}
+        <button type="submit" value="Создать задачу">Начать</button>
+        <button type="reset" value="Отменить">Отменить</button>
+    </form>
+</body>
+</html>

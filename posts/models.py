@@ -8,8 +8,6 @@ class Post(Model):
     author = CharField(max_length=100)
     post_body = TextField(help_text='Введите текст поста сюда')
     published_date = DateTimeField(default=datetime.now)
-    class Meta:
-        ordering = ['author']
 
 
 class Comment(Model):
